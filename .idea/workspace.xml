@@ -11,11 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/ad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ad/_collection.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201013090626.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201013090953.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201013091307.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ad/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ad/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +182,7 @@
       <workItem from="1602316454283" duration="3864000" />
       <workItem from="1602320401234" duration="753000" />
       <workItem from="1602490494522" duration="15600000" />
-      <workItem from="1602573014191" duration="6273000" />
+      <workItem from="1602573014191" duration="9274000" />
     </task>
     <servers />
   </component>
@@ -214,6 +217,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="732" y="10" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1602491730888" />
+    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602581453987">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602581453987" />
     <state x="526" y="102" key="IDE.errors.dialog" timestamp="1601132640721">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
