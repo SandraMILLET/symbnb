@@ -11,16 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/AnnonceType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ImageType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/ad/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/footer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/header.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CSS/bootstrap.min.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/AnnonceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/AnnonceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ImageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ImageType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +179,8 @@
       <workItem from="1602269128484" duration="3197000" />
       <workItem from="1602316454283" duration="3864000" />
       <workItem from="1602320401234" duration="753000" />
-      <workItem from="1602490494522" duration="15245000" />
+      <workItem from="1602490494522" duration="15600000" />
+      <workItem from="1602573014191" duration="2367000" />
     </task>
     <servers />
   </component>
