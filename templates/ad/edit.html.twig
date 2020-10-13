@@ -15,6 +15,19 @@
     </div>
 {% endblock %}
 
+
+{% block _annonce_images_widget %}
+    <p>Ici, vous pouvez ajouter vos propres images</p>
+
+    {{ form_widget(form) }}
+    <input type="hidden" id="widgets-counter" value="0">
+
+    <div class="form-group">
+        <button type="button" id="add-image" class="btn btn-primary">Ajouter une image</button>
+    </div>
+{% endblock %}
+
+
 {% block _annonce_images_entry_row %}
     {{ form_widget(form) }}
 {% endblock %}
@@ -26,9 +39,11 @@
                 <div class="row">
                     <div class="col">
                         {{ form_widget(form.url) }}
+                        {{ form_errors(form.url) }}
                     </div>
                     <div class="col">
                         {{ form_widget(form.caption) }}
+                        {{ form_errors(form.caption) }}
                     </div>
                 </div>
             </div>
@@ -65,6 +80,14 @@
                 $(target).remove();
             });
         }
+
+        function updateCounter(){
+            const count = +$('#annonce_images div.form-group').length;
+
+            $('#widgets-counter').val(count);
+        }
+
+        updateCounter();
         handleDeleteButtons();
     </script>
 
