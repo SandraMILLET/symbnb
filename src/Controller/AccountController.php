@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\PasswordUpdate;
 use App\Entity\User;
+use App\Form\AccountType;
+use App\Form\PasswordUpdateType;
 use App\Form\RegistrationType;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,7 +28,7 @@ class AccountController extends AbstractController
         $username = $utils->getLastUsername();
         return $this->render('account/login.html.twig', [
             'hasError' => $error !== null,
-            'username'=> $username
+            'username' => $username
         ]);
     }
 
@@ -35,7 +38,8 @@ class AccountController extends AbstractController
      * @return void
      *
      */
-    public function logout(){
+    public function logout()
+    {
         //...rien !
     }
 
@@ -45,13 +49,14 @@ class AccountController extends AbstractController
      *
      * @return Response
      */
-    public function register(Request $request,UserPasswordEncoderInterface $encoder){
+    public function register(Request $request, UserPasswordEncoderInterface $encoder)
+    {
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $hash = $encoder->encodePassword($user, $user->getHash());
             $user->setHash($hash);
             $manager = $this->getDoctrine()->getManager();
@@ -66,9 +71,71 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('account_login');
         }
 
-
         return $this->render('account/registration.html.twig', [
-            'form' =>$form->createView()
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Permet d'afficher et de traiter le formulaire de modification de profil
+     * @Route("/account/profile", name="account_profile")
+     * @return Response
+     */
+    public function profile(Request $request)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(AccountType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash(
+                'succes',
+                "Les données du profil ont été enregistrés avec succès"
+            );
+        }
+
+        return $this->render('account/profile.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Permet de modifier le mot de passe
+     * @Route("/account/password-update", name="account_password")
+     * @return Response
+     */
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+        $passwordUpdate = new PasswordUpdate();
+        $user = $this->getUser();
+        $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //vérifier que le oldPassword du formulaire soit le même que le password du user
+            if (!password_verify($passwordUpdate->getOldPassword(), $user->getHash())){
+                //gérer l'erreur
+                $form->get('oldPassword')->addError(new FormError("Le mot de passe que vous avez tapé n'est pas votre mot de passe actuel"));
+            } else {
+                $newPassword = $passwordUpdate->getNewPassword();
+                $hash = $encoder->encodePassword($user, $newPassword);
+
+                $user->setHash($hash);
+
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($user);
+                $manager->flush();
+            }
+            $this->addFlash(
+                'success',
+                "Votre mot de passe a été modifié avec succès"
+            );
+            return $this->redirectToRoute('homepage');
+        }
+        return $this->render('account/password.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
