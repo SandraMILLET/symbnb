@@ -110,9 +110,13 @@ class AccountController extends AbstractController
     public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $passwordUpdate = new PasswordUpdate();
+
         $user = $this->getUser();
+
         $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             //vérifier que le oldPassword du formulaire soit le même que le password du user
             if (!password_verify($passwordUpdate->getOldPassword(), $user->getHash())) {
@@ -127,15 +131,25 @@ class AccountController extends AbstractController
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($user);
                 $manager->flush();
+
+                $this->addFlash(
+                    'success',
+                    "Votre mot de passe a été modifié avec succès"
+                );
+                return $this->redirectToRoute('homepage');
             }
-            $this->addFlash(
-                'success',
-                "Votre mot de passe a été modifié avec succès"
-            );
-            return $this->redirectToRoute('homepage');
         }
-        return $this->render('account/password.html.twig', [
-            'form' => $form->createView()
+        return $this->render('account/password.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * Permet d'afficher le profil de l'utilisateur connecté
+     * @Route("/account", name="account_index")
+     */
+    public function myAccount()
+    {
+        return $this->render('user/index.html.twig', [
+            'user'=> $this->getUser()
         ]);
     }
 }
