@@ -73,7 +73,7 @@ class AppFixtures extends Fixture
             $ad = new Ad();
 
             $title = $faker->sentence(6);
-            $coverImage = $faker->imageUrl(1000, 350);
+            $coverImage = "https://loremflickr.com/1000/350/house";
             $introduction = $faker->paragraph(2);
             $content = '<p>' . join('</p><p>', $faker->paragraphs(5)) . '</p>';
 
@@ -90,7 +90,7 @@ class AppFixtures extends Fixture
             for ($j = 1; $j <= mt_rand(2, 5); $j++) {
                 $image = new Image();
 
-                $image->setUrl($faker->imageUrl())
+                $image->setUrl($coverImage)
                     ->setCaption($faker->sentence())
                     ->setAd($ad);
 

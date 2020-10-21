@@ -11,22 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201021122303.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201021131004.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/BookingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Booking.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/BookingType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/BookingRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/booking/book.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/booking/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CSS/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/CSS/bootstrap.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ad/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,6 +188,8 @@
       <workItem from="1603278455288" duration="535000" />
       <workItem from="1603279054948" duration="74000" />
       <workItem from="1603279161019" duration="9675000" />
+      <workItem from="1603304205397" duration="2231000" />
+      <workItem from="1603306686844" duration="592000" />
     </task>
     <servers />
   </component>
@@ -232,10 +220,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="438" y="187" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1602490885472" />
-    <state x="732" y="10" key="#PHP" timestamp="1602491730888">
+    <state x="732" y="10" key="#PHP" timestamp="1603305999434">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="732" y="10" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1602491730888" />
+    <state x="732" y="10" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1603305999434" />
     <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602683785950">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
