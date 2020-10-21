@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
@@ -59,18 +61,59 @@ class Booking
      * Callback appelé à chaque fois qu'on créé une réservation
      * @ORM\PrePersist
      */
-    public function prePersist(){
-        if(empty($this->createdAt)){
+    public function prePersist()
+    {
+        if (empty($this->createdAt)) {
             $this->createdAt = new \DateTime();
         }
 
-        if(empty($this->amount)){
+        if (empty($this->amount)) {
             //prix de l'annonce * nombre de jour
             $this->amount = $this->ad->getPrice() * $this->getDuration();
         }
     }
 
-    public function getDuration(){
+    public function isBookableDates()
+    {
+        //il faut connaitre les dates impossibles
+        $notAvailableDays = $this->ad->getNotAvailableDays();
+        //il faut comparer les dates choisies avec les dates impossibles
+        $bookingDays = $this->getDays();
+
+        $formatDay = function ($day) {
+            return $day->format('Y-m-d');
+        };
+        //tableau qui contient des chaines de caracteres de mes journées
+        $days = array_map($formatDay, $bookingDays);
+
+        $notAvailable = array_map($formatDay, $notAvailableDays);
+
+        foreach ($days as $day) {
+            if (array_search($day, $notAvailable) !== false) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Cette fonction va permettre de récupérer un tableau  des journées qui correspondent à ma réservation
+     * @return array
+     * un tableau d'objet DateTime représentant les jours de réservation
+     */
+    public function getDays()
+    {
+        $resultat = range(
+            $this->startDate->getTimestamp(),
+            $this->endDate->getTimestamp(),
+            24 * 60 * 60
+        );
+        $days = array_map(function ($dayTimestamp) {
+            return new \DateTime(date('Y-m-d', $dayTimestamp));
+        }, $resultat);
+        return $days;
+    }
+
+    public function getDuration()
+    {
         $diff = $this->endDate->diff($this->startDate);
         return $diff->days;
     }

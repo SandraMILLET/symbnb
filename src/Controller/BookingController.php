@@ -24,22 +24,31 @@ class BookingController extends AbstractController
         $form = $this->createForm(BookingType::class, $booking);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
 
             $booking->setBooker($user)
                 ->setAd($ad);
 
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($booking);
-            $manager->flush();
+            //si les dates non dispo, message erreur
+            if(!$booking->isBookableDates()){
+            $this->addFlash(
+                'warning',
+                "Les dates que vous avez choisi ne peuvent être réservées : elles sont déjà prises."
+            );
+            } else {
+            //sinon enregistrement et redirection
 
-            return $this->redirectToRoute('booking_show', ['id' => $booking->getId()]);
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($booking);
+                $manager->flush();
 
+                return $this->redirectToRoute('booking_show', ['id' => $booking->getId(), 'withAlert' => true]);
+            }
         }
         return $this->render('booking/book.html.twig', [
-           'ad' =>$ad,
-            'form'=> $form->createView()
+            'ad' => $ad,
+            'form' => $form->createView()
         ]);
     }
 
@@ -49,9 +58,11 @@ class BookingController extends AbstractController
      * @param Booking $booking
      * @return Response
      */
-    public function show(Booking $booking){
-    return $this->render('booking/show.html.twig', [
-        'booking'=> $booking
-    ]);
+    public
+    function show(Booking $booking)
+    {
+        return $this->render('booking/show.html.twig', [
+            'booking' => $booking
+        ]);
     }
 }
