@@ -16,12 +16,14 @@
             <p class="h2">
                 <strong>{{ ad.rooms }} chambres</strong> pour <strong>{{ ad.price }}&euro;</strong> par nuit
             </p>
-            <a href="{{path('booking_create', {'slug' : ad.slug })}}" class="btn btn-primary">Réserver !</a>
-            {% if app.user and app.user == ad.author%}
-            <a href="{{ path('ads_edit', {'slug' : ad.slug}) }}" class="btn btn-secondary">Modifier l'annonce</a>
+            <a href="{{ path('booking_create', {'slug' : ad.slug }) }}" class="btn btn-primary">Réserver !</a>
+            {% if app.user and app.user == ad.author %}
+                <a href="{{ path('ads_edit', {'slug' : ad.slug}) }}" class="btn btn-secondary">Modifier l'annonce</a>
 
-                <a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger" onclick="return confirm(`Etes-vous sûr de vouloir supprimer l'annonce : {{ad.title}} ?`)">Supprimer l'annoce</a>
-        {% endif %}
+                <a href="{{ path('ads_delete', {'slug': ad.slug}) }}" class="btn btn-danger"
+                   onclick="return confirm(`Etes-vous sûr de vouloir supprimer l'annonce : {{ ad.title }} ?`)">Supprimer
+                    l'annoce</a>
+            {% endif %}
         </div>
     </div>
     <div class="container">
@@ -57,6 +59,34 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+
+
+                <hr>
+
+                {% if ad.comments|length > 0 %}
+                    <h2 class="mb-3">Commentaires de nos voyageurs : </h2>
+                    {% for comment in ad.comments %}
+                        <div class="bg-light rounded mb-3 py-3 px-3">
+                            <strong>{{ comment.author.fullName }}</strong> a dit :
+                            <blockquote>
+                                {{ comment.content }}
+                            </blockquote>
+                            <strong>Note donnée par {{ comment.author.fullName }} : </strong>
+                            <span class="rating">
+                                {% for i in 1..5 %}
+                                    {% if i<= comment.rating %}
+                                        <i class="fas fa-star"></i>
+                                        {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h2>Cette annonce n'a pas encore reçu de commentaires...</h2>
+                {% endif %}
             </div>
             <div class="col">
                 {% set a = ad.author %}
