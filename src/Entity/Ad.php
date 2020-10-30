@@ -110,6 +110,34 @@ class Ad
     }
 
     /**
+     * Permet de récuperer le commentaire d'un auteur par rapport à une annonce
+     * @param User $author
+     * @return Comment|null
+     */
+    public function getCommentFromAuthor(User $author)
+    {
+        foreach ($this->comments as $comment) {
+            if ($comment->getAuthor() === $author) return $comment;
+        }
+        return null;
+    }
+
+    /**
+     *Permet d'obtenir la moyenne globale des notes pour cette annonce
+     * @return float
+     */
+    public function getAvgRatings()
+    {
+        //calculer la somme des notations
+        $sum = array_reduce($this->comments->toArray(), function ($total, $comment) {
+            return $total + $comment->getRating();
+        }, 0);
+        //faire la division pour avoir la moyenne
+        if (count($this->comments) > 0) return $sum / count($this->comments);
+        return 0;
+    }
+
+    /**
      * Permet d'obtenir un tableau des jours non disponibles pour cette annonce
      * @return array
      * un tableau d'objet Datetime représentant les jours d'occupation

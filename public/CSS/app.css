@@ -12,6 +12,11 @@ div.and-title h1, div.and-title p {
     color: white;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
+div.and-title .btn{
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
 
 div.carousel-caption {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
@@ -34,5 +39,19 @@ div.carousel-caption {
 }
 
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
-    color : firebrick !important;
+    color: firebrick !important;
 }
+
+span.rating i {
+    color: goldenrod;
+}
+
+.alert a {
+    text-decoration: none;
+}
+
+.alert .btn {
+    color: white;
+}
+
+
