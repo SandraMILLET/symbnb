@@ -11,17 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/CommentType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/partials/rating.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/CSS/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/CSS/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Ad.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Ad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ApplicationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ApplicationType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/bookings.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/bookings.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/registration.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ad/_ad.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/_ad.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/_collection.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/_collection.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ad/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ad/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ad/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/booking/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/book.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booking/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booking/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +165,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -200,7 +204,7 @@
       <workItem from="1603304205397" duration="2231000" />
       <workItem from="1603306686844" duration="6591000" />
       <workItem from="1603541274381" duration="6679000" />
-      <workItem from="1604051481916" duration="5071000" />
+      <workItem from="1604051481916" duration="9502000" />
     </task>
     <servers />
   </component>
@@ -255,10 +259,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="526" y="102" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1601132640721" />
-    <state x="261" y="17" key="SettingsEditor" timestamp="1602501694115">
+    <state x="261" y="17" key="SettingsEditor" timestamp="1604062072371">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="261" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602501694115" />
+    <state x="261" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604062072371" />
     <state x="680" y="166" key="run.anything.popup" timestamp="1602320013327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -276,6 +280,11 @@
           <url>file://$PROJECT_DIR$/src/DataFixtures/AppFixtures.php</url>
           <line>63</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/ad/new.html.twig</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
