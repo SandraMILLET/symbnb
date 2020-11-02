@@ -5,7 +5,7 @@
 {%  form_theme form _self %}
 {% block body %}
     <div class="container">
-        <h1>Modification de l'annonce {{ ad.title }}</h1>
+        <h1 class="my-5">Modification de l'annonce {{ ad.title }}</h1>
 
         {{ form_start(form) }}
         <div class="row">
@@ -95,7 +95,6 @@
 
         {{ form_end(form) }}
 
-
     </div>
 {% endblock %}
 
@@ -104,17 +103,16 @@
 {% endblock %}
 
 {% block _annonce_images_entry_row %}
-    <div id="block_{{ id }}">
-
-    </div>
-
+    <div id="block_{{id}}">  </div>
 {{form_widget(form) }}
 {% endblock %}
 
 {% block _annonce_images_entry_widget %}
-<div class="row align-items-center">
+<div class="row align-items-center mb-3">
     <div class="col-4">
-        {{ form_row(form.url) }}
+        {% if value %}
+        <img src="{{ value.url }}" class="img-fluid" alt="">
+        {% endif %}
     </div>
     <div class="col-6">
         {{ form_row(form.caption) }}
@@ -130,9 +128,9 @@
 {% block javascripts %}
     <script>
         $(document).ready(function(){
-            $('[data-action="delete"]').on("click", function(){
-                //const target = this.dataset.target;
-                const target = $(this).data('target');
+            $('[data-action="delete"]').on('click', function(){
+                const target = this.dataset.target;
+                //const target = $(this).data('target');
                 //console.log(target);
                 $(target).remove();
             });

@@ -11,14 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdminAccountController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/account/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/ad/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminBookingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminCommentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/AdminBookingType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/AdminCommentType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/booking/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/comment/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/comment/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminAdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminAdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/ad/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/ad/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/ad/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/ad/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,11 +167,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\booking" />
+      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\comment" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\account" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\ad" />
-      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\bundles" />
-      <recent name="C:\wamp64\www\symbnb\templates" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -202,6 +206,7 @@
       <workItem from="1603541274381" duration="6679000" />
       <workItem from="1604051481916" duration="11189000" />
       <workItem from="1604151538601" duration="8069000" />
+      <workItem from="1604320396994" duration="8846000" />
     </task>
     <servers />
   </component>
@@ -248,10 +253,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="713" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1603278984923" />
-    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602581453987">
+    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604329211728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602581453987" />
+    <state x="754" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1604329211728" />
     <state x="526" y="102" key="IDE.errors.dialog" timestamp="1601132640721">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -260,6 +265,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="261" y="17" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604156267158" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1604322120371">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1604322120371" />
     <state x="680" y="166" key="run.anything.popup" timestamp="1602320013327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
