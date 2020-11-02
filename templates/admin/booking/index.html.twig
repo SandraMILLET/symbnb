@@ -4,59 +4,57 @@
 
 {% block body %}
     <div class="container-fluid">
-        <h1 class="my-5">Gestion des réservations</h1>
-        <table class="table-over">
-            <thead >
-            <th>Id</th>
-            <th>Titre</th>
-            <th>Auteur</th>
-            <th class="text-center">Réservations</th>
-            <th class="text-center">Note</th>
-            <th>Actions</th>
+        <h1 class="my-5">Administration des réservations</h1>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Visiteur</th>
+                <th>Annonce</th>
+                <th>Durée</th>
+                <th>Montant</th>
+                <th></th>
+            </tr>
             </thead>
 
             <tbody>
-            {% for ad in ads %}
+            {% for booking in pagination.data %}
                 <tr>
-                    <td>{{ ad.id }}</td>
-                    <td>{{ ad.title }}</td>
+                    <td>{{booking.id}}</td>
+                    <td>{{booking.createdAt|date('d/m/Y H:i')}}</td>
+                    <td><img src="{{booking.booker.picture}}" alt="" class="avatar avatar-micro"> {{booking.booker.fullName}}</td>
+                    <td>{{booking.ad.title}}</td>
+                    <td>{{booking.duration}}</td>
+                    <td>{{booking.amount | number_format(2, ",", " ")}} &euro;</td>
                     <td>
-                        <img src="{{ ad.author.picture }}" alt="Avatar de {{ ad.author.fullName }}"
-                             class="avatar avatar-micro mr-2">
-                        {{ ad.author.fullName }}
-                    </td>
-
-                    <td class="text-center">
-                        <span class="badge badge-primary rounded">
-                        {{ ad.bookings |length }}</span>
-                    </td>
-                    <td class="text-center">
-                        <span class="badge badge-primary rounded">{{ ad.avgRatings | number_format(1,',',' ') }}</span>
-                    </td>
-                    <td>
-                        <a href="{{path('admin_ads_edit', {'id':ad.id})}}" class="btn btn-primary">
-                            <i class="fas fa-edit"></i>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-pen"></i>
                         </a>
-                        <a href="{{path('admin_ads_delete', {'id':ad.id})}}" class="btn btn-primary">
+                        <a href="#" class="btn btn-danger">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
+
         </table>
         <div class="d-flex justify-content-center">
+            {% set page =  pagination.page %}
+            {% set pages =  pagination.pages %}
             <ul class="pagination">
                 <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a href="{{path('admin_ads_index', {'page':page -1})}}" class="page-link">&laquo;</a>
+                    <a href="{{path('admin_booking_index', {'page':page -1})}}" class="page-link">&laquo;</a>
                 </li>
                 {% for i in 1..pages %}
                     <li class="page-item {% if page == i %}active{% endif %}">
-                        <a href="{{path("admin_ads_index", {'page' :i})}}" class="page-link">{{ i }}</a>
+                        <a href="{{path("admin_booking_index", {'page' :i})}}" class="page-link">{{ i }}</a>
                     </li>
                 {% endfor %}
                 <li class="page-item {% if page == pages %}disabled{% endif %}">
-                    <a href="{{path('admin_ads_index', {'page':page +1})}}" class="page-link">&raquo;</a>
+                    <a href="{{path('admin_booking_index', {'page':page +1})}}" class="page-link">&raquo;</a>
                 </li>
             </ul>
         </div>

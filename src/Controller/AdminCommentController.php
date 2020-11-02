@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Form\AdminCommentType;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use App\Service\PaginationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,12 +15,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminCommentController extends AbstractController
 {
     /**
-     * @Route("/admin/comments", name="admin_comment_index")
+     * @Route("/admin/comments/{page<\d+>?1}", name="admin_comment_index")
      */
-    public function index(CommentRepository $repo)
+    public function index(CommentRepository $repo, $page, PaginationService $pagination)
     {
+        $pagination->setEntityClass(Comment::class)
+            ->setLimit(5)
+            ->setPage($page);
+
         return $this->render('admin/comment/index.html.twig', [
-            'comments' => $repo->findAll()
+            'pagination'=> $pagination
         ]);
     }
 
@@ -48,5 +53,27 @@ class AdminCommentController extends AbstractController
             'comment' => $comment,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * Permet de supprimer un commentaire
+     *
+     * @Route("/admin/comments/{id}/delete", name="admin_comment_delete")
+     *
+     * @param Comment $comment
+
+     * @return Response
+     */
+    public function delete(Comment $comment) {
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($comment);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "Le commentaire de {$comment->getAuthor()->getFullName()} a bien été supprimé !"
+        );
+
+        return $this->redirectToRoute('admin_comment_index');
     }
 }

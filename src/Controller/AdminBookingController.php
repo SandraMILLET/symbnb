@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Booking;
 use App\Form\AdminBookingType;
 use App\Repository\BookingRepository;
+use App\Service\PaginationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,43 +16,67 @@ class AdminBookingController extends AbstractController
     /**
      * @Route("/admin/bookings/{page<\d+>?1}", name="admin_booking_index")
      */
-    public function index(BookingRepository $repo, $page)
+    public function index(BookingRepository $repo, $page, PaginationService $pagination)
     {
-        $limit = 10;
-        $start = $page * $limit - $limit;
-        $total = count($repo->findAll());
-        $pages = ceil($total / $limit);
+        $pagination->setEntityClass(Booking::class)
+                    ->setPage($page);
 
         return $this->render('admin/booking/index.html.twig', [
-            'bookings' => $repo->findAll(),
-            'pages' => $pages,
-            'page' => $page
+            'pagination'=> $pagination
         ]);
     }
 
     /**
      * Permet d'éditer une réservation
-     * @Route("admin/bookings/{id}/edit", name="admin_booking_edit")
+     *
+     * @Route("/admin/bookings/{id}/edit", name="admin_booking_edit")
+     *
      * @return Response
      */
-    public function edit(Booking $booking, Request $request){
-        $form =$this->createForm(AdminBookingType::class, $booking);
+    public function edit(Booking $booking, Request $request)
+    {
+        $form = $this->createForm(AdminBookingType::class, $booking);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $booking->setAmount(0);
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($booking);
             $manager->flush();
+
             $this->addFlash(
                 'success',
-                "La réservation <strong>{$ad->getTitle()}</strong> a bien été enregistré !"
+                "La réservation n°{$booking->getId()} a bien été modifiée"
             );
+
+            return $this->redirectToRoute("admin_booking_index");
         }
 
-        return $this->render('admin/ad/edit.html.twig', [
-            'booking' => $booking,
-            'form' => $form->createView()
+        return $this->render('admin/booking/edit.html.twig', [
+            'form' => $form->createView(),
+            'booking' => $booking
         ]);
+    }
+
+    /**
+     * Permet de supprimer une réservation
+     *
+     * @Route("/admin/bookings/{id}/delete", name="admin_booking_delete")
+     *
+     * @return Response
+     */
+    public function delete(Booking $booking)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($booking);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "La réservation a bien été supprimée"
+        );
+
+        return $this->redirectToRoute("admin_booking_index");
     }
 }
