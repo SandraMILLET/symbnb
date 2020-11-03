@@ -29,10 +29,10 @@
                     <td>{{booking.duration}}</td>
                     <td>{{booking.amount | number_format(2, ",", " ")}} &euro;</td>
                     <td>
-                        <a href="#" class="btn btn-primary">
+                        <a href="{{path('admin_booking_edit', {'id': booking.id})}}" class="btn btn-primary">
                             <i class="fas fa-pen"></i>
                         </a>
-                        <a href="#" class="btn btn-danger">
+                        <a href="{{path('admin_booking_delete', {'id': booking.id})}}" class="btn btn-danger">
                             <i class="fas fa-trash"></i>
                         </a>
                     </td>
@@ -41,6 +41,7 @@
             </tbody>
 
         </table>
+
         {{ pagination.display() }}
     </div>
 {% endblock %}
