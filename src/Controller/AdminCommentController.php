@@ -24,7 +24,7 @@ class AdminCommentController extends AbstractController
             ->setPage($page);
 
         return $this->render('admin/comment/index.html.twig', [
-            'pagination'=> $pagination
+            'pagination' => $pagination
         ]);
     }
 
@@ -34,8 +34,9 @@ class AdminCommentController extends AbstractController
      * @param Comment $comment
      * @return Response
      */
-    public function edit(Comment $comment, Request $request){
-        $form =$this->createForm(AdminCommentType::class, $comment);
+    public function edit(Comment $comment, Request $request)
+    {
+        $form = $this->createForm(AdminCommentType::class, $comment);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,10 +62,10 @@ class AdminCommentController extends AbstractController
      * @Route("/admin/comments/{id}/delete", name="admin_comment_delete")
      *
      * @param Comment $comment
-
      * @return Response
      */
-    public function delete(Comment $comment) {
+    public function delete(Comment $comment)
+    {
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($comment);
         $manager->flush();

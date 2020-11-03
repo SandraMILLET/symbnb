@@ -45,22 +45,6 @@
             {% endfor %}
             </tbody>
         </table>
-        <div class="d-flex justify-content-center">
-            {% set page =  pagination.page %}
-            {% set pages =  pagination.pages %}
-            <ul class="pagination">
-                <li class="page-item {% if page == 1 %}disabled{% endif %}">
-                    <a href="{{path('admin_ads_index', {'page':page -1})}}" class="page-link">&laquo;</a>
-                </li>
-                {% for i in 1..pages %}
-                <li class="page-item {% if page == i %}active{% endif %}">
-                    <a href="{{path("admin_ads_index", {'page' :i})}}" class="page-link">{{ i }}</a>
-                </li>
-                {% endfor %}
-                <li class="page-item {% if page == pages %}disabled{% endif %}">
-                    <a href="{{path('admin_ads_index', {'page':page +1})}}" class="page-link">&raquo;</a>
-                </li>
-            </ul>
-        </div>
+        {% include 'admin/partials/pagination.html.twig' with {'route': 'admin_ads_index'} %}
     </div>
 {% endblock %}
