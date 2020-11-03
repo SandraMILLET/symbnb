@@ -11,14 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfa62cc4-e0c8-4e0a-b5d3-8293663040ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/partials/pagination.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminCommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminCommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/ad/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/ad/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminBookingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminBookingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PaginationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PaginationService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/ad/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/ad/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/booking/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/booking/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/comment/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/comment/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/partials/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/partials/pagination.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/partials/pagination.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,15 +163,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\booking" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\partials" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\booking" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\comment" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\account" />
       <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin" />
-      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\ad" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\SYMFONY\symbnb\templates\admin\booking" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -208,7 +208,7 @@
       <workItem from="1604151538601" duration="8069000" />
       <workItem from="1604320396994" duration="9606000" />
       <workItem from="1604345325740" duration="5551000" />
-      <workItem from="1604395929109" duration="1068000" />
+      <workItem from="1604395929109" duration="4052000" />
     </task>
     <servers />
   </component>

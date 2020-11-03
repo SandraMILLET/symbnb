@@ -19,7 +19,7 @@ class AdminBookingController extends AbstractController
     public function index(BookingRepository $repo, $page, PaginationService $pagination)
     {
         $pagination->setEntityClass(Booking::class)
-                    ->setPage($page);
+                   ->setPage($page);
 
         return $this->render('admin/booking/index.html.twig', [
             'pagination'=> $pagination
